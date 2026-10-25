@@ -1,0 +1,63 @@
+package com.example.demo.model;
+import org.springframework.stereotype.Component;
+@Component // Annotate Student with @Component
+public class Student {
+private String name = "John Doe";
+private String rollNo = "251AI024";
+public String getName() {
+}
+public void setName(String name) {
+}
+public String getRollNo() {
+}
+public void setRollNo(String rollNo) {
+}
+}
+package com.example.demo.service;
+import com.example.demo.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service // Annotate StudentService with @Service
+public class StudentService {
+@Autowired
+private Student student;
+public void displayStudentDetails() {
+}
+public void updateStudentName(String newName) {
+}
+}
+package com.example.demo.aspect;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+@Aspect // Declares the component class as an isolated Aspect concern configuration
+@Component
+public class LoggingAspect {
+@Before("execution(* com.example.demo.service.StudentService.*(..))")
+public void logBeforeMethodCall(JoinPoint joinPoint) {
+}
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+@SpringBootApplication
+@EnableAspectJAutoProxy // Forces the context runtime tracking engine to scan components tagged with @Aspect
+public class DemoApplication {
+public static void main(String[] args) {
+}
+}
+package com.example.demo;
+import com.example.demo.service.StudentService;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+@SpringBootTest
+public class StudentAopTest {
+@Autowired
+private StudentService studentService;
+@Test
+public void testAopAdviceInterception() {
+}
+}

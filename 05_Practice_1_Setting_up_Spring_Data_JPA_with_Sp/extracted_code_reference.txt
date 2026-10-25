@@ -1,0 +1,72 @@
+<dependency>
+<dependency>
+<dependency>
+<dependency>
+server.port=8080
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.h2.console.enabled=true
+package com.example.demo.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity // Designates this Java class object as a database table relation schema mapping
+@Table(name = "users")
+public class User {
+@Id // Explicitly markers this field instance variable as the relational Primary Key component
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+private String name;
+private String email;
+public User() {}
+public User(String name, String email) {
+}
+public Long getId() { return id; }
+public void setId(Long id) { this.id = id; }
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public String getEmail() { return email; }
+public void setEmail(String email) { this.email = email; }
+@Override
+public String toString() {
+}
+}
+package com.example.demo.repository;
+import com.example.demo.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+@Repository // Declares a dedicated abstract data manipulation persistence bean component route
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication {
+public static void main(String[] args) {
+}
+}
+package com.example.demo;
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import java.util.Optional;
+import java.util.List;
+@SpringBootTest
+public class UserCrudTest {
+@Autowired
+private UserRepository userRepository;
+@Test
+public void executeDatabaseCrudSequence() {
+}
+}
+}

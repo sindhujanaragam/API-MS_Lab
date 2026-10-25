@@ -1,0 +1,58 @@
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication
+{
+public static void main(String[] args)
+{
+}
+}
+package com.example.demo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class HelloController {
+@GetMapping("/")
+public String home() {
+}
+@GetMapping("/hello")
+public String hello() {
+}
+}
+<dependency>
+<dependency>
+<dependency>
+<dependency>
+<dependency>
+server.port=8080
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.h2.console.enabled=true
+@RestController
+public class HelloController {
+@GetMapping("/test")
+public String test() {
+}
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication {
+public static void main(String[] args) {
+}
+}
+package com.example.demo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class HelloController {
+@GetMapping("/hello")
+public String hello() {
+}
+}

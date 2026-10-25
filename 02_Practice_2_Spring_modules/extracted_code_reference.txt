@@ -1,0 +1,91 @@
+<dependency>
+<dependency>
+<dependency>
+<dependency>
+server.port=8080
+spring.datasource.url=jdbc:h2:mem:moduledb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.h2.console.enabled=true
+package com.example.demo.model;
+public class Product {
+private Long id;
+private String name;
+private Double price;
+public Product() {}
+public Product(Long id, String name, Double price) {
+}
+public Long getId() { return id; }
+public void setId(Long id) { this.id = id; }
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public Double getPrice() { return price; }
+public void setPrice(Double price) { this.price = price; }
+@Override
+public String toString() {
+}
+}
+package com.example.demo.repository;
+import com.example.demo.model.Product;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+@Repository
+public class ProductRepository {
+private final JdbcTemplate jdbcTemplate;
+public ProductRepository(JdbcTemplate jdbcTemplate) {
+}
+public void createTable() {
+}
+public int save(Product product) {
+}
+public List<Product> findAll() {
+}
+private static class ProductRowMapper implements RowMapper<Product> {
+@Override
+public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+}
+}
+}
+package com.example.demo;
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import java.util.List;
+@SpringBootApplication
+public class SpringJdbcApplication {
+public static void main(String[] args) {
+}
+@Bean
+public CommandLineRunner demo(ProductRepository repository) {
+}
+}
+}
+package com.example.demo.controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class PortalController {
+@GetMapping("/")
+public String welcome() {
+}
+@GetMapping("/greet")
+public String greet(@RequestParam(value = "name", defaultValue = "Student") String name) {
+}
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class SpringMvcApplication {
+public static void main(String[] args) {
+}
+}

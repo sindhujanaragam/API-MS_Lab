@@ -1,0 +1,65 @@
+package com.example.demo.model;
+public class User {
+private Long id;
+private String name;
+private String email;
+public User() {}
+public User(Long id, String name, String email) {
+}
+public Long getId() {
+}
+public void setId(Long id) {
+}
+public String getName() {
+}
+public void setName(String name) {
+}
+public String getEmail() {
+}
+public void setEmail(String email) {
+}
+}
+import com.example.demo.model.User;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+private final List<User> users = new ArrayList<>();
+public UserController() {
+}
+@PostMapping
+public String createUser(@RequestBody User user) {
+}
+@GetMapping
+public List<User> getAllUsers() {
+}
+@GetMapping("/{id}")
+public User getUserById(@PathVariable Long id) {
+}
+@PutMapping("/{id}")
+public String updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+}
+}
+}
+@DeleteMapping("/{id}")
+public String deleteUser(@PathVariable Long id) {
+}
+}
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication {
+public static void main(String[] args) {
+}
+}
+{
+{
+}
+{
+}
+{
+}

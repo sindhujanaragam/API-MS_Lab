@@ -1,0 +1,57 @@
+package com.example.demo.model;
+public class Product {
+private Long id;
+private String name;
+private double price;
+public Product() {}
+public Product(Long id, String name, double price) {
+}
+public Long getId() { return id; }
+public void setId(Long id) { this.id = id; }
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public double getPrice() { return price; }
+public void setPrice(double price) { this.price = price; }
+}
+package com.example.demo.controller;
+import com.example.demo.model.Product;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+private final List<Product> productList = new ArrayList<>();
+private long currentId = 1;
+public ProductController() {
+}
+@GetMapping
+public ResponseEntity<List<Product>> getAllProducts() {
+}
+@GetMapping("/{id}")
+public ResponseEntity<?> getProductById(@PathVariable Long id) {
+}
+}
+@PostMapping
+public ResponseEntity<Product> createProduct(@RequestBody Product newProduct) {
+}
+@PutMapping("/{id}")
+public ResponseEntity<?> updateProduct(@PathVariable Long id, @RequestBody Product updatedProductData) {
+}
+}
+@DeleteMapping("/{id}")
+public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+}
+}
+}
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication {
+public static void main(String[] args) {
+}
+}
